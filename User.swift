@@ -25,7 +25,7 @@ class User: NSObject {
         self.dictionary = dictionary
         
         name = dictionary["name"] as? NSString
-        screenname = dictionary["sreen_name"] as? NSString
+        screenname = dictionary["screen_name"] as? NSString
         
         let profileUrlString = dictionary["profile_image_url_https"] as? NSString
         if let profileUrlString = profileUrlString {
