@@ -16,6 +16,9 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var tweetLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     
+    @IBOutlet weak var retweetCountLabel: UILabel!
+    @IBOutlet weak var favoriteCountLabel: UILabel!
+    
     var tweet: Tweet?
     
     override func viewDidLoad() {
@@ -25,6 +28,8 @@ class DetailViewController: UIViewController {
             self.tweetLabel.text = tweet.text
             self.nameLabel.text = tweet.user?.name as String?
             self.handleLabel.text = tweet.user?.screenname as String?
+            self.retweetCountLabel.text = "\(tweet.retweetCount)"
+            self.favoriteCountLabel.text = "\(tweet.favoriteCount)"
             
             if let url = tweet.profileUrl {
                 self.profileImageView.setImageWith(url)
