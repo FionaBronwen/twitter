@@ -65,7 +65,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Xpy-C8-Rao" id="INp-XX-oFA">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="99"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Wca-gN-uJ4">
@@ -171,6 +171,7 @@
                                             <outlet property="retweetCountLabel" destination="sz0-5e-ZbN" id="Yva-2I-LCS"/>
                                             <outlet property="tweetTextLabel" destination="fF6-8J-biM" id="faq-L0-CB2"/>
                                             <outlet property="usernameLabel" destination="gtq-Jz-ZFd" id="tmm-QX-bf1"/>
+                                            <segue destination="ZXv-vC-QLP" kind="show" id="ff0-qb-swn"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -192,6 +193,79 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MX5-YF-nNa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1564" y="136.28185907046478"/>
+        </scene>
+        <!--Detail View Controller-->
+        <scene sceneID="LGE-oo-VIK">
+            <objects>
+                <viewController id="ZXv-vC-QLP" customClass="DetailViewController" customModule="Twitter" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Qjb-HF-m7P"/>
+                        <viewControllerLayoutGuide type="bottom" id="smj-TE-g07"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="DzW-qO-yQn">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Siv-bJ-Nyg">
+                                <rect key="frame" x="0.0" y="64" width="375" height="228"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Pra-x8-mRi">
+                                        <rect key="frame" x="8" y="8" width="48" height="48"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="48" id="Gd0-cI-PNV"/>
+                                            <constraint firstAttribute="height" constant="48" id="oDA-EN-sha"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="~fiona~" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CMp-IT-yXg">
+                                        <rect key="frame" x="64" y="8" width="55" height="18"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@fionabronwen" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RWD-xv-8dd">
+                                        <rect key="frame" x="64" y="25" width="88" height="15"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="tweet tweet tweet tweet" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Bi-cl-39F">
+                                        <rect key="frame" x="8" y="64" width="184" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="CMp-IT-yXg" firstAttribute="leading" secondItem="Pra-x8-mRi" secondAttribute="trailing" constant="8" id="9nL-dY-7gx"/>
+                                    <constraint firstItem="RWD-xv-8dd" firstAttribute="top" secondItem="Siv-bJ-Nyg" secondAttribute="top" constant="25" id="Cpa-7Z-hLQ"/>
+                                    <constraint firstItem="CMp-IT-yXg" firstAttribute="top" secondItem="Siv-bJ-Nyg" secondAttribute="top" constant="8" id="Ma5-pu-eOT"/>
+                                    <constraint firstItem="Pra-x8-mRi" firstAttribute="top" secondItem="Siv-bJ-Nyg" secondAttribute="top" constant="8" id="OOT-2g-IoC"/>
+                                    <constraint firstItem="Pra-x8-mRi" firstAttribute="leading" secondItem="Siv-bJ-Nyg" secondAttribute="leading" constant="8" id="RMH-J4-JYS"/>
+                                    <constraint firstItem="RWD-xv-8dd" firstAttribute="leading" secondItem="Pra-x8-mRi" secondAttribute="trailing" constant="8" id="RMP-Et-RA8"/>
+                                    <constraint firstItem="9Bi-cl-39F" firstAttribute="top" secondItem="Pra-x8-mRi" secondAttribute="bottom" constant="8" id="tYG-qG-le5"/>
+                                    <constraint firstItem="9Bi-cl-39F" firstAttribute="leading" secondItem="Siv-bJ-Nyg" secondAttribute="leading" constant="8" id="wQ0-wR-5oS"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="smj-TE-g07" firstAttribute="top" secondItem="Siv-bJ-Nyg" secondAttribute="bottom" constant="375" id="9BF-be-GiJ"/>
+                            <constraint firstItem="Siv-bJ-Nyg" firstAttribute="leading" secondItem="DzW-qO-yQn" secondAttribute="leading" id="gIg-1G-xkq"/>
+                            <constraint firstAttribute="trailing" secondItem="Siv-bJ-Nyg" secondAttribute="trailing" id="jdx-Nc-Gty"/>
+                            <constraint firstItem="Siv-bJ-Nyg" firstAttribute="top" secondItem="Qjb-HF-m7P" secondAttribute="bottom" id="oMJ-x1-T2N"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="handleLabel" destination="RWD-xv-8dd" id="7qL-BM-5R6"/>
+                        <outlet property="nameLabel" destination="CMp-IT-yXg" id="SHE-er-aL3"/>
+                        <outlet property="profileImageView" destination="Pra-x8-mRi" id="X12-AC-yq6"/>
+                        <outlet property="tweetLabel" destination="9Bi-cl-39F" id="6Wg-xD-Lla"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mwj-Pu-qT9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2266.4000000000001" y="134.48275862068968"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="xMK-7W-7eA">
