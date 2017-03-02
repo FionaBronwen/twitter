@@ -14,6 +14,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var handleLabel: UILabel!
     @IBOutlet weak var tweetLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
     
     var tweet: Tweet?
     
@@ -28,6 +29,7 @@ class DetailViewController: UIViewController {
             if let url = tweet.profileUrl {
                 self.profileImageView.setImageWith(url)
             }
+            self.dateLabel.text = DateFormatter.localizedString(from: tweet.timestamp!, dateStyle: DateFormatter.Style.short, timeStyle: DateFormatter.Style.short)
         }
         
         // Do any additional setup after loading the view.
