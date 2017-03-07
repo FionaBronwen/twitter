@@ -25,6 +25,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var tableView: UITableView!
     
     var user: User?
+    var tweets: [Tweet] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,15 +47,31 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         followingCountLabel.text = "\((user?.followingCount)!)"
         usernameLabel.text = user?.name as String?
         handleLabel.text = "@\((user?.screenname)!)"
+        
+        TwitterClient.sharedInstance?.userTimeline(handle: user?.screenname as! String, success: { (tweets: [Tweet]) in
+            self.tweets = tweets
+            self.tableView.reloadData()
+        }, failure: { (error: Error) in
+            print(error.localizedDescription)
+        })
     }
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TweetCell") as! TweetCell
+        let tweet = tweets[indexPath.row]
+        let username = tweet.user?.name as String?
+        if let url = tweet.profileUrl {
+            cell.profilePicImageView.setImageWith(url)
+        }
+        cell.usernameButton.setTitle(username, for: .normal)
+        cell.handleLabel.text = "@\((tweet.user?.screenname)!)"
+        cell.tweetTextLabel.text = tweet.text
+        cell.tweet = tweet
         return cell
     }
     
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return tweets.count
     }
     
     

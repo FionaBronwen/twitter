@@ -12,11 +12,16 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
     
     @IBOutlet weak var tableView: UITableView!
+    
+    var refreshControl = UIRefreshControl()
     var tweets: [Tweet] = []
     var userForSegue: User?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        refreshControl.addTarget(self, action: #selector(fetchTweets), for: .valueChanged)
+        tableView.addSubview(refreshControl)
                 
         tableView.dataSource = self
         tableView.delegate = self
@@ -31,15 +36,20 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         titleView.addSubview(imageView)
         self.navigationItem.titleView = titleView
         
+        fetchTweets()
         
+
+        // Do any additional setup after loading the view.
+    }
+    
+    func fetchTweets() {
         TwitterClient.sharedInstance?.homeTimeline(success: { (tweets: [Tweet]) in
             self.tweets = tweets
             self.tableView.reloadData()
+            self.refreshControl.endRefreshing()
         }, failure: { (error: Error) in
             print(error.localizedDescription)
         })
-
-        // Do any additional setup after loading the view.
     }
     
     func profileImageTapped(user: User){

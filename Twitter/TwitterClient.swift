@@ -98,7 +98,18 @@ class TwitterClient: BDBOAuth1SessionManager {
             
         })
 
+        
 
     
-}
+    }
+    func userTimeline(handle: String, success: @escaping ([Tweet]) -> (), failure: @escaping (Error) -> ()) {
+        get("1.1/statuses/user_timeline.json?screen_name=\(handle)", parameters: nil, progress: nil,
+            success: { ( task:URLSessionDataTask, repsonse: Any?) in
+                let dictionaries = repsonse as! [NSDictionary]
+                
+                let tweets = Tweet.tweetsWithArray(dictionaries: dictionaries)
+                success(tweets)
+        }, failure: { (task: URLSessionDataTask?, error: Error) in failure(error)
+        })
+    }
 }

@@ -114,8 +114,8 @@
 			children = (
 				5FE5C1711E5CB4B80061FAA2 /* LoginViewController.swift */,
 				5FE5C1A21E64DC6F0061FAA2 /* TweetsViewController.swift */,
-				5F8896751E67D4510035BECE /* DetailViewController.swift */,
 				5F6C172B1E6BA5F000C36F1B /* ProfileViewController.swift */,
+				5F8896751E67D4510035BECE /* DetailViewController.swift */,
 				5F6256F21E6E51A7002972EA /* ComposeViewController.swift */,
 			);
 			name = "View Controllers";
@@ -192,6 +192,7 @@
 				TargetAttributes = {
 					5F24AEFE1E5CB1DF00CE34DF = {
 						CreatedOnToolsVersion = 8.2;
+						DevelopmentTeam = 62P67T8LU2;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -412,6 +413,7 @@
 			baseConfigurationReference = B1EDD4027A968F6B82C1EF15 /* Pods-Twitter.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 62P67T8LU2;
 				INFOPLIST_FILE = Twitter/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.fionathompson.Twitter;
@@ -425,6 +427,7 @@
 			baseConfigurationReference = B453DC12530E3870D4BC2919 /* Pods-Twitter.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 62P67T8LU2;
 				INFOPLIST_FILE = Twitter/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.fionathompson.Twitter;
