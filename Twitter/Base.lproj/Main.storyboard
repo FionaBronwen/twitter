@@ -241,7 +241,7 @@
                                     <constraint firstAttribute="height" constant="130" id="Eim-NC-gZn"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardType="twitter"/>
                             </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="fionabt" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7dV-a3-Dcb">
                                 <rect key="frame" x="64" y="72" width="53" height="18"/>
@@ -264,7 +264,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="8f8-lZ-bgs">
-                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="r4f-RE-prg">
+                        <barButtonItem key="leftBarButtonItem" image="close-icon" id="r4f-RE-prg">
                             <connections>
                                 <action selector="cancelButtonPressed:" destination="FhV-oQ-y7G" id="DKh-KA-Fbg"/>
                             </connections>
@@ -725,6 +725,7 @@
                         <outlet property="followingCountLabel" destination="Kp5-j8-vLu" id="hhk-pw-Hmu"/>
                         <outlet property="handleLabel" destination="0IF-wB-n7F" id="iRt-5F-OJ2"/>
                         <outlet property="profileImageView" destination="UuN-UH-cZ7" id="whP-u6-1mh"/>
+                        <outlet property="tableView" destination="l3y-Jt-h2B" id="2Eu-Xg-cEM"/>
                         <outlet property="tweetCountLabel" destination="raD-Ok-hhc" id="B34-AB-RLe"/>
                         <outlet property="usernameLabel" destination="w92-zK-Bsp" id="7SJ-8X-EWD"/>
                     </connections>
@@ -771,6 +772,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="close-icon" width="26" height="24"/>
         <image name="edit-icon" width="30" height="27"/>
         <image name="favor-icon" width="30" height="30"/>
         <image name="reply-icon" width="30" height="30"/>

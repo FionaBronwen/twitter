@@ -32,6 +32,19 @@ class TwitterClient: BDBOAuth1SessionManager {
             })
     }
     
+    func tweet(status: String){
+        let endpoint = "/1.1/statuses/update.json?status="
+        guard let encocdedStatus = status.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) else {
+            return
+        }
+        let url = endpoint + encocdedStatus
+        post(url, parameters: nil, progress: nil, success: { (task: URLSessionDataTask, response: Any?) in
+            print("Successful tweet!!!!!!!!!")
+        }) { (task:URLSessionDataTask?, error: Error) in
+            print("error:\(error.localizedDescription)")
+        }
+    }
+    
     func logout(){
         User.currentUser = nil
         deauthorize()

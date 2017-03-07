@@ -26,6 +26,7 @@ class TweetCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        selectionStyle = .none
         profilePicImageView.layer.cornerRadius = 3
         profilePicImageView.clipsToBounds = true
         
