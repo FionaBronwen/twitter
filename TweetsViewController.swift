@@ -8,11 +8,12 @@
 
 import UIKit
 
-class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, ProfileViewSegueDelegate {
 
     
     @IBOutlet weak var tableView: UITableView!
     var tweets: [Tweet] = []
+    var userForSegue: User?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,6 +41,12 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
         // Do any additional setup after loading the view.
     }
+    
+    func profileImageTapped(user: User){
+        userForSegue = user
+        performSegue(withIdentifier: "ProfileViewSegue", sender: UIImageView())
+    }
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -57,14 +64,18 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TweetCell") as! TweetCell
         let tweet = tweets[indexPath.row]
+        let username = tweet.user?.name as String?
         if let url = tweet.profileUrl {
             cell.profilePicImageView.setImageWith(url)
         }
-        cell.usernameLabel.text = tweet.user?.name as String?
+        cell.usernameButton.setTitle(username, for: .normal)
         cell.handleLabel.text = "@\((tweet.user?.screenname)!)"
         cell.tweetTextLabel.text = tweet.text
         cell.retweetCountLabel.text = "\(tweet.retweetCount)"
         cell.favoriteCountLabel.text = "\(tweet.favoriteCount)"
+        cell.tweet = tweet
+        cell.delegate = self
+        
         
         return cell
     }
@@ -75,12 +86,21 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        let vc = segue.destination as? DetailViewController
+        let detailvc = segue.destination as? DetailViewController
+        let profilevc = segue.destination as? ProfileViewController
         
-        let indexPath = tableView.indexPath(for: sender as! TweetCell)
-        let tweet = tweets[(indexPath?.row)!]
+        if let sender = sender as? TweetCell {
+            let indexPath = tableView.indexPath(for: sender)
+            let tweet = tweets[(indexPath?.row)!]
+            detailvc?.tweet = tweet //send tweet to DetailViewController
+        }
+        if let sender = sender as? UIImageView {
+            profilevc?.user = userForSegue
+
+        }
         
-        vc?.tweet = tweet //send tweet to DetailViewController
+        
+        
         
     }
     

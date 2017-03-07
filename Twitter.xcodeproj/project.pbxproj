@@ -12,6 +12,8 @@
 		5F24AF081E5CB1DF00CE34DF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F24AF061E5CB1DF00CE34DF /* Main.storyboard */; };
 		5F24AF0A1E5CB1DF00CE34DF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5F24AF091E5CB1DF00CE34DF /* Assets.xcassets */; };
 		5F24AF0D1E5CB1DF00CE34DF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F24AF0B1E5CB1DF00CE34DF /* LaunchScreen.storyboard */; };
+		5F6256F31E6E51A7002972EA /* ComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6256F21E6E51A7002972EA /* ComposeViewController.swift */; };
+		5F6256F61E6E64EC002972EA /* ProfileViewSegueDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6256F51E6E64EC002972EA /* ProfileViewSegueDelegate.swift */; };
 		5F6C172C1E6BA5F000C36F1B /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6C172B1E6BA5F000C36F1B /* ProfileViewController.swift */; };
 		5F8896761E67D4510035BECE /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F8896751E67D4510035BECE /* DetailViewController.swift */; };
 		5FE5C1721E5CB4B80061FAA2 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE5C1711E5CB4B80061FAA2 /* LoginViewController.swift */; };
@@ -29,6 +31,8 @@
 		5F24AF091E5CB1DF00CE34DF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5F24AF0C1E5CB1DF00CE34DF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5F24AF0E1E5CB1DF00CE34DF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5F6256F21E6E51A7002972EA /* ComposeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposeViewController.swift; sourceTree = "<group>"; };
+		5F6256F51E6E64EC002972EA /* ProfileViewSegueDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewSegueDelegate.swift; sourceTree = "<group>"; };
 		5F6C172B1E6BA5F000C36F1B /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		5F8896751E67D4510035BECE /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DetailViewController.swift; path = Twitter/DetailViewController.swift; sourceTree = "<group>"; };
 		5FE5C1711E5CB4B80061FAA2 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -83,6 +87,7 @@
 		5F24AF011E5CB1DF00CE34DF /* Twitter */ = {
 			isa = PBXGroup;
 			children = (
+				5F6256F41E6E64AA002972EA /* Protocols */,
 				5FE5C1A61E6576330061FAA2 /* Views */,
 				5FE5C19B1E64ADCC0061FAA2 /* API */,
 				5FE5C19A1E64ADA90061FAA2 /* Models */,
@@ -96,6 +101,14 @@
 			path = Twitter;
 			sourceTree = "<group>";
 		};
+		5F6256F41E6E64AA002972EA /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				5F6256F51E6E64EC002972EA /* ProfileViewSegueDelegate.swift */,
+			);
+			name = Protocols;
+			sourceTree = "<group>";
+		};
 		5FE5C1701E5CB48D0061FAA2 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -103,6 +116,7 @@
 				5FE5C1A21E64DC6F0061FAA2 /* TweetsViewController.swift */,
 				5F8896751E67D4510035BECE /* DetailViewController.swift */,
 				5F6C172B1E6BA5F000C36F1B /* ProfileViewController.swift */,
+				5F6256F21E6E51A7002972EA /* ComposeViewController.swift */,
 			);
 			name = "View Controllers";
 			path = ..;
@@ -271,6 +285,8 @@
 				5FE5C19F1E64AE0C0061FAA2 /* Tweet.swift in Sources */,
 				5FE5C1721E5CB4B80061FAA2 /* LoginViewController.swift in Sources */,
 				5FE5C1A31E64DC6F0061FAA2 /* TweetsViewController.swift in Sources */,
+				5F6256F31E6E51A7002972EA /* ComposeViewController.swift in Sources */,
+				5F6256F61E6E64EC002972EA /* ProfileViewSegueDelegate.swift in Sources */,
 				5FE5C1A11E64B8910061FAA2 /* TwitterClient.swift in Sources */,
 				5F6C172C1E6BA5F000C36F1B /* ProfileViewController.swift in Sources */,
 				5F24AF031E5CB1DF00CE34DF /* AppDelegate.swift in Sources */,

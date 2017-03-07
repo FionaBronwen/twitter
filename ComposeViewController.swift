@@ -1,42 +1,38 @@
 //
-//  ProfileViewController.swift
+//  ComposeViewController.swift
 //  Twitter
 //
-//  Created by Fiona Thompson on 3/4/17.
+//  Created by Fiona Thompson on 3/6/17.
 //  Copyright © 2017 Fiona Thompson. All rights reserved.
 //
 
 import UIKit
 
-class ProfileViewController: UIViewController {
-
+class ComposeViewController: UIViewController {
     
-    @IBOutlet weak var bannerImageView: UIImageView!
+    @IBOutlet weak var tweetContentView: UITextView!
     @IBOutlet weak var profileImageView: UIImageView!
+
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var handleLabel: UILabel!
-    @IBOutlet weak var tweetCountLabel: UILabel!
-    @IBOutlet weak var followingCountLabel: UILabel!
-    @IBOutlet weak var followersCountLabel: UILabel!
     
+    @IBOutlet weak var tweetButton: UIBarButtonItem!
     
-    var user: User?
+    @IBOutlet weak var cancelButton: UIBarButtonItem!
+    
+    var user = User.currentUser
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        usernameLabel.text = user?.name as? String
+        handleLabel.text = user?.screenname as? String
         if let url = user?.profileUrl {
             self.profileImageView.setImageWith(url as URL)
         }
-        if let bannerUrl = user?.bannerUrl{
-            self.bannerImageView.setImageWith(bannerUrl as URL)
-        }
-        tweetCountLabel.text = "\((user?.tweetCount)!)"
+        
+
         // Do any additional setup after loading the view.
-        followersCountLabel.text = "\((user?.followerCount)!)"
-        followingCountLabel.text = "\((user?.followingCount)!)"
-        usernameLabel.text = user?.name as String?
-        handleLabel.text = "@\((user?.screenname)!)"
     }
 
     override func didReceiveMemoryWarning() {
@@ -44,6 +40,13 @@ class ProfileViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func tweetButtonPressed(_ sender: Any) {
+        
+    }
+    
+    @IBAction func cancelButtonPressed(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
 
     /*
     // MARK: - Navigation

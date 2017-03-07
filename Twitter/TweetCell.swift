@@ -13,19 +13,32 @@ class TweetCell: UITableViewCell {
     @IBOutlet weak var retweetButton: UIButton!
     @IBOutlet weak var favoriteButton: UIButton!
     @IBOutlet weak var profilePicImageView: UIImageView!
-    @IBOutlet weak var usernameLabel: UILabel!
+    
     @IBOutlet weak var handleLabel: UILabel!
     @IBOutlet weak var tweetTextLabel: UILabel!
+    @IBOutlet weak var usernameButton: UIButton!
     
     @IBOutlet weak var favoriteCountLabel: UILabel!
     @IBOutlet weak var retweetCountLabel: UILabel!
+    
+    var delegate: ProfileViewSegueDelegate?
+    var tweet: Tweet?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         profilePicImageView.layer.cornerRadius = 3
         profilePicImageView.clipsToBounds = true
         
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(profileImageTapped(tapGestureRecognizer:)))
+        profilePicImageView.isUserInteractionEnabled = true
+        profilePicImageView.addGestureRecognizer(tapGestureRecognizer)
+        
     }
-
+    
+    func profileImageTapped(tapGestureRecognizer: UITapGestureRecognizer){
+        delegate?.profileImageTapped(user: (tweet?.user)!)
+    }
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
@@ -40,4 +53,5 @@ class TweetCell: UITableViewCell {
         retweetCountLabel.text = "\(Int(retweetCountLabel.text!)! + 1)"
         retweetButton.setImage(UIImage(named: "retweet-icon-green"), for: .normal)
     }
+    
 }
